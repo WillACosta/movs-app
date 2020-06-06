@@ -1,27 +1,51 @@
+import { Store } from '@ngrx/store';
 import { Usuario } from './../models/user.model';
 import { AngularFireAuth } from '@angular/fire/auth';
 import { Injectable } from '@angular/core';
 
 import { map } from 'rxjs/operators';
 import { AngularFirestore } from '@angular/fire/firestore';
+import { AppState } from '../app.reducer';
+
+import * as authActions from '../auth/auth.actions';
+import { Subscription } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
 })
 export class AuthService {
+  userSubscription: Subscription;
+
   constructor(
     private auth: AngularFireAuth,
-    public firestore: AngularFirestore
+    public firestore: AngularFirestore,
+    private store: Store<AppState>
   ) {}
 
   /**
    * Captura informações do usuário
+   * Inscrição deve estar sempre ativa, para verificar se existe o usuário ou não
    */
   initAuthListener() {
     this.auth.authState.subscribe((fUser) => {
-      console.log(fUser);
-      console.log(fUser?.uid);
-      console.log(fUser?.email);
+      // console.log(fUser?.uid);
+      if (fUser) {
+        /**
+         * Inscrição para logar o usuário e fazer logout
+         * Obs.: Somente para o usuário ativo, destruir a inscrição logo após
+         * o logout
+         */
+        this.userSubscription = this.firestore
+          .doc(`${fUser.uid}/usuario`)
+          .valueChanges()
+          .subscribe((fireUser: any) => {
+            const user = Usuario.fromFirebase(fireUser);
+            this.store.dispatch(authActions.setUser({ user }));
+          });
+      } else {
+        this.userSubscription.unsubscribe();
+        this.store.dispatch(authActions.unSetUser());
+      }
     });
   }
 
