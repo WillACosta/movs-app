@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "erp-app-213b8": {
+      "hosting": {
+        "erp-app": [
+          "erp-app-213b8"
+        ]
+      }
+    }
+  }
+}
