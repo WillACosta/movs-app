@@ -15,6 +15,15 @@ import { Subscription } from 'rxjs';
 })
 export class AuthService {
   userSubscription: Subscription;
+  private _user: Usuario;
+
+  /**
+   * Obter instância do usuário
+   */
+  get user(){
+    // return {...this._user}
+    return this._user;
+  }
 
   constructor(
     private auth: AngularFireAuth,
@@ -40,9 +49,11 @@ export class AuthService {
           .valueChanges()
           .subscribe((fireUser: any) => {
             const user = Usuario.fromFirebase(fireUser);
+            this._user = user;
             this.store.dispatch(authActions.setUser({ user }));
           });
       } else {
+        this._user = null;
         this.userSubscription.unsubscribe();
         this.store.dispatch(authActions.unSetUser());
       }
