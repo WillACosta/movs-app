@@ -1,3 +1,5 @@
+import { map } from 'rxjs/operators';
+
 import { AuthService } from './auth.service';
 import { AngularFirestore } from '@angular/fire/firestore';
 import { Injectable } from '@angular/core';
@@ -9,11 +11,13 @@ import { EntradaSaida } from '../models/entradas-saidas.model';
 export class EntradaSaidaService {
   constructor(
     private firestore: AngularFirestore,
-    private authS: AuthService,
+    private authS: AuthService
   ) {}
 
   criarRegistro(entradaSaida: EntradaSaida) {
     const uid = this.authS.user.uid;
+
+    // delete entradaSaida.uid; // Talvez seja um problema?
 
     /**
      * Gravar o registro da movimentação em um doc do firebase
@@ -38,11 +42,34 @@ export class EntradaSaidaService {
   }
 
   initEntradaSaidaListener(uid: string) {
-    this.firestore
-      .collection(`${uid}/entrada-saida/items`)
-      .valueChanges()
-      .subscribe((value) => {
-        console.log(value);
-      });
+    return (
+      this.firestore
+        .collection(`${uid}/entrada-saida/items`)
+        /**
+         * Snapshot traz todas as alterações dos objetos com detalhes
+         * de informações
+         */
+        .snapshotChanges()
+        /**
+         * A função map transforma a resposta em algo específico
+         * logo depois, é o que receberemos no subscribe
+         */
+        .pipe(
+          map((snap) => {
+            // console.log(snap);
+            return snap.map((doc) => {
+              return {
+                uid: doc.payload.doc.id,
+                ...(doc.payload.doc.data() as any),
+              };
+            });
+          })
+        )
+    );
+  }
+
+  excluirMovimentacao(uidItem: string) {
+    const uid = this.authS.user.uid;
+    return this.firestore.doc(`${uid}/entrada-saida/items/${uidItem}`).delete();
   }
 }

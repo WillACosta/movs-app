@@ -1,3 +1,4 @@
+import { unSetItems } from './../erp/entrada-saida.action';
 import { Store } from '@ngrx/store';
 import { Usuario } from './../models/user.model';
 import { AngularFireAuth } from '@angular/fire/auth';
@@ -51,11 +52,13 @@ export class AuthService {
             const user = Usuario.fromFirebase(fireUser);
             this._user = user;
             this.store.dispatch(authActions.setUser({ user }));
+
           });
       } else {
         this._user = null;
         this.userSubscription.unsubscribe();
         this.store.dispatch(authActions.unSetUser());
+        this.store.dispatch(unSetItems()); //Sempre que o usuário faz o logout os items do store será limpado
       }
     });
   }

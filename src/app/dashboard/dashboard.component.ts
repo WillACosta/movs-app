@@ -1,3 +1,4 @@
+import { setItems } from './../erp/entrada-saida.action';
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { AppState } from '../app.reducer';
 import { Store } from '@ngrx/store';
@@ -12,6 +13,7 @@ import { EntradaSaidaService } from '../services/entrada-saida.service';
 })
 export class DashboardComponent implements OnInit, OnDestroy {
   userSubs: Subscription;
+  movimentacaoSubs: Subscription;
   constructor(
     private store: Store<AppState>,
     private esServ: EntradaSaidaService
@@ -28,11 +30,16 @@ export class DashboardComponent implements OnInit, OnDestroy {
       .pipe(filter((auth) => auth.user != null))
       .subscribe(({ user }) => {
         console.log(user);
-        this.esServ.initEntradaSaidaListener(user.uid);
+        this.movimentacaoSubs = this.esServ
+          .initEntradaSaidaListener(user.uid)
+          .subscribe((entradasSaidas) => {
+            this.store.dispatch(setItems({ items: entradasSaidas }));
+          });
       });
   }
 
   ngOnDestroy() {
+    this.movimentacaoSubs.unsubscribe();
     this.userSubs.unsubscribe();
   }
 }

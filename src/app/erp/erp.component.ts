@@ -56,10 +56,12 @@ export class ErpComponent implements OnInit, OnDestroy {
     this.esServ
       .criarRegistro(entradaSaida)
       .then(() => {
+        this.store.dispatch(stopLoading());
         this.entradaForm.reset;
         Swal.fire('Movimentação criada!', descricao, 'success');
       })
       .catch((err) => {
+        this.store.dispatch(stopLoading());
         Swal.fire('Error', err.message, 'error');
       });
   }

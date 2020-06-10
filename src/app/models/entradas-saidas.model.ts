@@ -3,6 +3,6 @@ export class EntradaSaida {
     public descricao: string,
     public valor: number,
     public tipo: string,
-    // public uid: string
+    public uid?: string
   ) {}
 }
