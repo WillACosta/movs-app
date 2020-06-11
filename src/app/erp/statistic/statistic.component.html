@@ -15,7 +15,7 @@
                     </div>
                 </div>
                 <p class="text-muted mt-3 mb-0">
-                    <i class="mdi mdi-alert-octagon mr-1" aria-hidden="true"></i> {{ entradas }} items
+                    <i class="mdi mdi-alert-octagon mr-1" aria-hidden="true"></i> {{ entradas }} Registro(s)
                 </p>
             </div>
         </div>
@@ -37,7 +37,7 @@
                     </div>
                 </div>
                 <p class="text-muted mt-3 mb-0">
-                    <i class="mdi mdi-alert-octagon mr-1" aria-hidden="true"></i> {{ saidas }} items
+                    <i class="mdi mdi-alert-octagon mr-1" aria-hidden="true"></i> {{ saidas }} Registro(s)
                 </p>
             </div>
         </div>
@@ -46,7 +46,7 @@
 
 <div class="row m-5">
 
-    <div class="col-12">
+    <!-- <div class="col-12">
         <div class="card card-statistics">
             <div class="card-body">
                 <div class="clearfix">
@@ -66,12 +66,12 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div> -->
 
-    <div class="col-12 p-5" *ngIf="entradas > 0 || saidas > 0">
+    <div class="col-12 p-3" *ngIf="entradas > 0 || saidas > 0">
         <div class="card card-statistics">
             <div class="card-body">
-                <h1 class="card-title">Gráfico</h1>
+                <h1 class="card-title">Gráfico das Movimentações</h1>
 
                 <div style="display: block">
                     <canvas baseChart [data]="doughnutChartData" [labels]="doughnutChartLabels"

@@ -1,10 +1,10 @@
 import { EntradaSaida } from './../../models/entradas-saidas.model';
 import { Store } from '@ngrx/store';
 import { Component, OnInit } from '@angular/core';
-import { AppState } from 'src/app/app.reducer';
 
 import { ChartType } from 'chart.js';
 import { MultiDataSet, Label } from 'ng2-charts';
+import { AppStateWithMovs } from '../entrada-saida.reducer';
 
 @Component({
   selector: 'app-statistic',
@@ -27,7 +27,7 @@ export class StatisticComponent implements OnInit {
   public doughnutChartData: MultiDataSet = [];
   public doughnutChartType: ChartType = 'doughnut';
 
-  constructor(private store: Store<AppState>) {}
+  constructor(private store: Store<AppStateWithMovs>) {}
 
   ngOnInit() {
     this.store.select('enSai').subscribe(({ items }) => {

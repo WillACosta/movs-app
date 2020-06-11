@@ -3,9 +3,9 @@ import Swal from 'sweetalert2';
 import { EntradaSaida } from './../../models/entradas-saidas.model';
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Store } from '@ngrx/store';
-import { AppState } from 'src/app/app.reducer';
 import { Subscription } from 'rxjs';
 import { EntradaSaidaService } from 'src/app/services/entrada-saida.service';
+import { AppStateWithMovs } from '../entrada-saida.reducer';
 
 @Component({
   selector: 'app-detail',
@@ -17,7 +17,7 @@ export class DetailComponent implements OnInit, OnDestroy {
   movsSubs: Subscription;
 
   constructor(
-    private store: Store<AppState>,
+    private store: Store<AppStateWithMovs>,
     private enS: EntradaSaidaService
   ) {}
 

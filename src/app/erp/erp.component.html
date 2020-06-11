@@ -2,7 +2,7 @@
     <div class="col-12">
         <div class="card">
             <div class="card-body">
-                <h4 class="card-title">Lançamento Entrada / Saífa</h4>
+                <h4 class="card-title">Lançamento Entrada / Saída</h4>
                 <p class="card-description">
                     Especifique o valor e o tipo
                 </p>
@@ -11,7 +11,7 @@
 
                     <div class="form-group">
                         <label>Descriçao</label>
-                        <input type="text" class="form-control" placeholder="Descriçao" name="descricao" formControlName="descricao">
+                        <input type="text" class="form-control" placeholder="Descrição" name="descricao" formControlName="descricao">
                     </div>
 
                     <div class="form-group">
@@ -39,7 +39,7 @@
                         Salvando...
                     </button>
 
-                    <button type="reset" class="btn btn-light">Cancelar</button>
+                    <button type="reset" class="btn btn-light" [routerLink]="['/']" routerLinkActive="router-link-active" >Cancelar</button>
 
                 </form>
             </div>

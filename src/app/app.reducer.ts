@@ -6,7 +6,7 @@ import * as entSai from './erp/entrada-saida.reducer';
 export interface AppState {
   ui: ui.State;
   auth: auth.State;
-  enSai: entSai.State;
+  // enSai: entSai.State;
 }
 
 /**
@@ -16,5 +16,5 @@ export interface AppState {
 export const appReducers: ActionReducerMap<AppState> = {
   ui: ui.uiReducer,
   auth: auth.authReducer,
-  enSai: entSai.entradaSaidaReducer,
+  // enSai: entSai.entradaSaidaReducer,
 };
