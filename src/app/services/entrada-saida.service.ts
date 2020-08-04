@@ -17,7 +17,7 @@ export class EntradaSaidaService {
   criarRegistro(entradaSaida: EntradaSaida) {
     const uid = this.authS.user.uid;
 
-    // delete entradaSaida.uid; // Talvez seja um problema?
+    delete entradaSaida.uid; // Talvez seja um problema?
 
     /**
      * Gravar o registro da movimentação em um doc do firebase
@@ -28,7 +28,7 @@ export class EntradaSaidaService {
       .collection('items')
       .add({ ...entradaSaida })
       .then((ref) => {
-        console.log('Movimentação criada!', ref);
+        // console.log('Movimentação criada!', ref);
       })
       .catch((err) => console.warn(err));
 

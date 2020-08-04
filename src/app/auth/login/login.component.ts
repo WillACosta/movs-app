@@ -45,16 +45,7 @@ export class LoginComponent implements OnInit, OnDestroy {
   onSubmit() {
     if (this.formLogin.invalid) return;
 
-    //Adicionar login animation
-
     this.store.dispatch(isLoading());
-
-    // Swal.fire({
-    //   title: 'Aguarde ...',
-    //   onBeforeOpen: () => {
-    //     Swal.showLoading();
-    //   },
-    // });
 
     const { email, senha } = this.formLogin.value;
 
@@ -62,7 +53,6 @@ export class LoginComponent implements OnInit, OnDestroy {
       .login(email, senha)
       .then((signed) => {
         console.log(signed);
-        // Swal.close();
         this.store.dispatch(stopLoading());
         this.router.navigate(['/']);
       })

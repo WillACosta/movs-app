@@ -56,7 +56,7 @@ export class AuthService {
           });
       } else {
         this._user = null;
-        this.userSubscription.unsubscribe();
+        this.userSubscription?.unsubscribe();
         this.store.dispatch(authActions.unSetUser());
         this.store.dispatch(unSetItems()); //Sempre que o usuário faz o logout os items do store será limpado
       }

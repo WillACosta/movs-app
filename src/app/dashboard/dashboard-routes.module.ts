@@ -3,7 +3,6 @@ import { NgModule } from '@angular/core';
 
 import { DashboardComponent } from './dashboard.component';
 import { dashboardRoutes } from './dashboard.routes';
-import { AuthGuard } from '../services/auth.guard';
 
 const rotasFilhas = [
   {
