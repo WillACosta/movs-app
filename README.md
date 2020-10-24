@@ -1,8 +1,8 @@
 # MovsApp
 
-O MovsApp é uma simples aplicação desenvolvida em angular e firebase, que registra movimentações financeiras de entrada e saída. Utilizando recursos como autenticação com email e senha, real-time com programação reativa e utilização de gráficos para resumo das informações.
+O MovsApp é uma aplicação desenvolvida em angular e firebase, que registra movimentações financeiras de entrada e saída. Utilizando recursos como autenticação com email e senha, real-time com programação reativa e utilização de gráficos para resumo das informações.
 
-# Construído com
+## Construído com
 
 - Angular
 - Lazyloading
@@ -12,7 +12,7 @@ O MovsApp é uma simples aplicação desenvolvida em angular e firebase, que reg
 - Chart.js
 - Firebase
 
-# Execução
+## Execução
 
     Necessário ter o Node.js instalado em sua máquina.
 
@@ -20,6 +20,6 @@ O MovsApp é uma simples aplicação desenvolvida em angular e firebase, que reg
 - Instale as dependências do projeto com `npm install`
 - Execute o comando `ng serve -o` para abrir a aplicação em `http://localhost:4200/`
 
-# Informações
-
-    Acesse a aplicação na web [aqui](https://erp-app-213b8.web.app/login)
+## Informações
+  
+  Acesse a aplicação na web [aqui](https://erp-app-213b8.web.app/login)
