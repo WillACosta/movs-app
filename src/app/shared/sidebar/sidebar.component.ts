@@ -1,6 +1,5 @@
 import { filter } from 'rxjs/operators';
 import { Subscription } from 'rxjs';
-import { Usuario } from './../../models/user.model';
 import { Store } from '@ngrx/store';
 import { Router } from '@angular/router';
 import { AuthService } from './../../services/auth.service';
@@ -10,7 +9,7 @@ import { AppState } from 'src/app/app.reducer';
 @Component({
   selector: 'app-sidebar',
   templateUrl: './sidebar.component.html',
-  styles: [],
+  styleUrls: ['./sidebar.component.css'],
 })
 export class SidebarComponent implements OnInit, OnDestroy {
   usuarioAtivo: string;

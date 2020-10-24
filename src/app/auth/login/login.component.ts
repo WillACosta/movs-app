@@ -1,8 +1,9 @@
-import { isLoading, stopLoading } from './../../shared/ui.actions';
-import { Router } from '@angular/router';
-import { AuthService } from './../../services/auth.service';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Router } from '@angular/router';
+
+import { isLoading, stopLoading } from './../../shared/ui.actions';
+import { AuthService } from './../../services/auth.service';
 
 import Swal from 'sweetalert2';
 
@@ -13,12 +14,16 @@ import { Subscription } from 'rxjs';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
-  styles: [],
+  styleUrls: ['./login.component.css'],
 })
 export class LoginComponent implements OnInit, OnDestroy {
   formLogin: FormGroup;
-  loading: boolean = false;
   uiSubscription: Subscription;
+
+  loading: boolean = false;
+
+  email: string;
+  senha: string;
 
   constructor(
     private fb: FormBuilder,
@@ -33,10 +38,7 @@ export class LoginComponent implements OnInit, OnDestroy {
       senha: ['', Validators.required],
     });
 
-    /**
-     * Inscrever-se no ui reducer e atribuir a uma variável
-     * para controlar futuramente
-     */
+    /** Inscrever-se no uiSubscription e posteriormente remover inscrição */
     this.uiSubscription = this.store.select('ui').subscribe((ui) => {
       this.loading = ui.isLoading;
     });
@@ -57,12 +59,16 @@ export class LoginComponent implements OnInit, OnDestroy {
         this.router.navigate(['/']);
       })
       .catch((err) => {
-        Swal.fire('Oops...', err.message, 'error');
+        Swal.fire(
+          'Oops...',
+          'Ocorreu um erro na sua autenticação, verifique seu email e senha por favor!',
+          'error'
+        );
         this.store.dispatch(stopLoading());
       });
   }
 
-  ngOnDestroy(){
-    this.uiSubscription.unsubscribe(); // Destruir a inscrição após o uso
+  ngOnDestroy() {
+    this.uiSubscription.unsubscribe(); //Remover inscrição
   }
 }

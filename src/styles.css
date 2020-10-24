@@ -1,7 +1,24 @@
-/* You can add global styles to this file, and also import other style files */
-
-.cursor{
-    cursor: pointer;
+.cursor {
+  cursor: pointer;
 }
 
-/** Estilização dos inputs para uso do angular material */
+/* Color Theme Swatches in Hex */
+.Fluorescing-coral-among-bleached-reef-1-hex { color: #8E9EBF; }
+.Fluorescing-coral-among-bleached-reef-2-hex { color: #587AA6; }
+.Fluorescing-coral-among-bleached-reef-3-hex { color: #024873; }
+.Fluorescing-coral-among-bleached-reef-4-hex { color: #025959; }
+.Fluorescing-coral-among-bleached-reef-5-hex { color: #027368; }
+
+/* Color Theme Swatches in RGBA */
+.Fluorescing-coral-among-bleached-reef-1-rgba { color: rgba(141, 158, 191, 1); }
+.Fluorescing-coral-among-bleached-reef-2-rgba { color: rgba(87, 121, 165, 1); }
+.Fluorescing-coral-among-bleached-reef-3-rgba { color: rgba(2, 71, 114, 1); }
+.Fluorescing-coral-among-bleached-reef-4-rgba { color: rgba(1, 89, 89, 1); }
+.Fluorescing-coral-among-bleached-reef-5-rgba { color: rgba(2, 114, 103, 1); }
+
+/* Color Theme Swatches in HSLA */
+.Fluorescing-coral-among-bleached-reef-1-hsla { color: hsla(219, 28, 65, 1); }
+.Fluorescing-coral-among-bleached-reef-2-hsla { color: hsla(213, 30, 49, 1); }
+.Fluorescing-coral-among-bleached-reef-3-hsla { color: hsla(202, 96, 22, 1); }
+.Fluorescing-coral-among-bleached-reef-4-hsla { color: hsla(180, 96, 17, 1); }
+.Fluorescing-coral-among-bleached-reef-5-hsla { color: hsla(174, 96, 22, 1); }

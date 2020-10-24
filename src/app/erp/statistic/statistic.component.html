@@ -8,7 +8,7 @@
                         <i class="fa fa-money-bill-alt text-success icon-lg"></i>
                     </div>
                     <div class="float-right">
-                        <p class="mb-0 text-right">Entradas</p>
+                        <p class="mb-0 text-right">Entrada</p>
                         <div class="fluid-container">
                             <h3 class="font-weight-medium text-right mb-0">{{ totalEntradas | currency }}</h3>
                         </div>
@@ -30,7 +30,7 @@
                         <i class="fa fa-shipping-fast text-danger icon-lg"></i>
                     </div>
                     <div class="float-right">
-                        <p class="mb-0 text-right">Saídas</p>
+                        <p class="mb-0 text-right">Saída</p>
                         <div class="fluid-container">
                             <h3 class="font-weight-medium text-right mb-0">{{ totalSaidas | currency }}</h3>
                         </div>
@@ -46,7 +46,7 @@
 
 <div class="row m-5">
 
-    <!-- <div class="col-12">
+    <div class="col-12">
         <div class="card card-statistics">
             <div class="card-body">
                 <div class="clearfix">
@@ -66,7 +66,7 @@
                 </div>
             </div>
         </div>
-    </div> -->
+    </div>
 
     <div class="col-12 p-3" *ngIf="entradas > 0 || saidas > 0">
         <div class="card card-statistics">

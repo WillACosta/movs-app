@@ -13,7 +13,7 @@ import { isLoading, stopLoading } from 'src/app/shared/ui.actions';
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
-  styles: [],
+  styleUrls: ['./register.component.css'],
 })
 export class RegisterComponent implements OnInit, OnDestroy {
   formRegistro: FormGroup;
@@ -44,30 +44,37 @@ export class RegisterComponent implements OnInit, OnDestroy {
 
     this.store.dispatch(isLoading());
 
-    // Swal.fire({
-    //   title: 'Aguarde ...',
-    //   onBeforeOpen: () => {
-    //     Swal.showLoading();
-    //   },
-    // });
-
     const { nome, email, senha } = this.formRegistro.value;
 
     this.authService
       .criarUsuario(nome, email, senha)
       .then((value) => {
-        console.log(value);
-        // Swal.close();
         this.store.dispatch(stopLoading());
         this.router.navigate(['/']);
       })
       .catch((err) => {
-        Swal.fire('Oops...', err.message, 'error');
+        if (
+          err.message.includes(
+            'The email address is already in use by another account'
+          )
+        )
+          Swal.fire(
+            'Oops...',
+            'Este endereço de email já é utilizado!',
+            'error'
+          );
+        else if (err.message.includes('least 6 characters'))
+          Swal.fire(
+            'Oops...',
+            'A senha deve conter no minímo 6 caracteres!',
+            'error'
+          );
+        else Swal.fire('Oops...', err.message, 'error');
         this.store.dispatch(stopLoading());
       });
   }
 
   ngOnDestroy() {
-    this.uiSubscription.unsubscribe(); // Destruir a inscrição após o uso
+    this.uiSubscription.unsubscribe();
   }
 }

@@ -18,12 +18,10 @@ export class StatisticComponent implements OnInit {
   totalEntradas: number = 0;
   totalSaidas: number = 0;
 
-  /**
-   * COnfigurações do gráfico
-   * @param store
-   */
+  /** COnfigurações do gráfico */
+
   // Doughnut
-  public doughnutChartLabels: Label[] = ['Entradas', 'Saídas'];
+  public doughnutChartLabels: Label[] = ['Saídas', 'Entradas'];
   public doughnutChartData: MultiDataSet = [];
   public doughnutChartType: ChartType = 'doughnut';
 
@@ -36,13 +34,11 @@ export class StatisticComponent implements OnInit {
   }
 
   gerarEstatistica(items: EntradaSaida[]) {
-
     this.totalEntradas = 0;
     this.totalSaidas = 0;
     this.entradas = 0;
     this.saidas = 0;
 
-    // items.
     for (const item of items) {
       if (item.tipo === 'ENTRADA') {
         this.totalEntradas += item.valor;
@@ -53,6 +49,6 @@ export class StatisticComponent implements OnInit {
       }
     }
 
-    this.doughnutChartData = [[this.totalEntradas, this.totalSaidas]];
+    this.doughnutChartData = [[this.totalSaidas, this.totalEntradas]];
   }
 }

@@ -1,0 +1,20 @@
+.logo {
+  height: 145px;
+  text-align: center;
+}
+
+.input-group-append {
+  height: 38px !important;
+}
+
+.btn-primary {
+  background-color: #024873 !important;
+  border: none;
+}
+
+input:focus,
+.btn-primary:focus,
+.btn-primary:active {
+  border: none;
+  box-shadow: none !important;
+}
