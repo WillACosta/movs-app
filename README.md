@@ -18,8 +18,8 @@ O MovsApp é uma simples aplicação desenvolvida em angular e firebase, que reg
 
 - Navegue até a pasta do projeto
 - Instale as dependências do projeto com `npm install`
-- Execute o comando `ng serve -o` e abra o endereço `http://localhost:4200/` em seu navegador
+- Execute o comando `ng serve -o` para abrir a aplicação em `http://localhost:4200/`
 
 # Informações
 
-    Caso queira ver a aplicação rodando na web, acesse [aqui](https://erp-app-213b8.web.app)
+    Acesse a aplicação na web [aqui](https://erp-app-213b8.web.app/login)
