@@ -1,0 +1,19 @@
+language: node_js
+
+# Configurações para exibição do navegador
+services:
+  - xvfb
+before_script:
+  - export DISPLAY=:99.0
+install:
+  - npm set progress=false
+  - npm install
+  - npm install -g firebase-tools
+  #- curl -sL https://firebase.tools | bash
+script:
+  #- npm run test
+  #- npm run start
+  #- npm run e2e
+  - npm run deploy
+
+node_js: "node"

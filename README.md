@@ -1,4 +1,4 @@
-# MovsApp
+# MovsApp [![Build Status](https://travis-ci.org/WillACosta/movs-app.svg?branch=master)](https://travis-ci.org/WillACosta/movs-app)
 
 O MovsApp é uma aplicação desenvolvida em angular e firebase, que registra movimentações financeiras de entrada e saída. Utilizando recursos como autenticação com email e senha, real-time com programação reativa e utilização de gráficos para resumo das informações.
 

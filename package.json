@@ -7,7 +7,8 @@
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
-    "e2e": "ng e2e"
+    "e2e": "ng e2e",
+    "deploy": "ng build && firebase deploy --token 1//0hbLs39U_lR72CgYIARAAGBESNwF-L9IrO3RIHB2_6YC1tRK_qIEQmJ-G5pfPjLVDgHGIXMa82cCmpLW4knhHuoxLh4k4YSfasm0"
   },
   "private": true,
   "dependencies": {
