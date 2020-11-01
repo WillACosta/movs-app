@@ -1,4 +1,4 @@
-import { setItems } from './../erp/entrada-saida.action';
+import { setItems } from './../moviments/entrada-saida.action';
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { AppState } from '../app.reducer';
 import { Store } from '@ngrx/store';

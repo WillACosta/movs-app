@@ -12,7 +12,8 @@ const routes: Routes = [
     path: '',
     // canActivate: [AuthGuard], // Redireciona o usuário para o auth guard antes de prosseguir para a rota
     canLoad: [AuthGuard],
-    loadChildren: () => import('./erp/erp.module').then((m) => m.ErpModule),
+    loadChildren: () =>
+      import('./moviments/moviments.module').then((m) => m.MovimentsModule),
   },
   { path: '**', component: DashboardComponent },
 ];

@@ -1,4 +1,4 @@
-import { unSetItems } from './../erp/entrada-saida.action';
+import { unSetItems } from './../moviments/entrada-saida.action';
 import { Store } from '@ngrx/store';
 import { Usuario } from './../models/user.model';
 import { AngularFireAuth } from '@angular/fire/auth';
@@ -21,7 +21,7 @@ export class AuthService {
   /**
    * Obter instância do usuário
    */
-  get user(){
+  get user() {
     // return {...this._user}
     return this._user;
   }
@@ -52,7 +52,6 @@ export class AuthService {
             const user = Usuario.fromFirebase(fireUser);
             this._user = user;
             this.store.dispatch(authActions.setUser({ user }));
-
           });
       } else {
         this._user = null;

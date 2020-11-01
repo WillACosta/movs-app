@@ -1,0 +1,82 @@
+<h1 class="card-title text-center text-muted pb-1">Estatística das movimentações</h1>
+<div class="row justify-content-center">
+    <div class="col-4">
+        <div class="card card-statistics">
+            <div class="card-body">
+
+                <div class="clearfix">
+                    <div class="float-left">
+                        <i class="fa fa-money-bill-alt text-success icon-lg"></i>
+                    </div>
+                    <div class="float-right">
+                        <p class="mb-0 text-right">Entrada</p>
+                        <div class="fluid-container">
+                            <h3 class="font-weight-medium text-right mb-0">{{ totalEntradas | currency }}</h3>
+                        </div>
+                    </div>
+                </div>
+                <p class="text-muted mt-3 mb-0">
+                    <i class="mdi mdi-alert-octagon mr-1" aria-hidden="true"></i> {{ entradas }} Registro(s)
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-4">
+        <div class="card card-statistics">
+            <div class="card-body">
+
+                <div class="clearfix">
+                    <div class="float-left">
+                        <i class="fa fa-shipping-fast text-danger icon-lg"></i>
+                    </div>
+                    <div class="float-right">
+                        <p class="mb-0 text-right">Saída</p>
+                        <div class="fluid-container">
+                            <h3 class="font-weight-medium text-right mb-0">{{ totalSaidas | currency }}</h3>
+                        </div>
+                    </div>
+                </div>
+                <p class="text-muted mt-3 mb-0">
+                    <i class="mdi mdi-alert-octagon mr-1" aria-hidden="true"></i> {{ saidas }} Registro(s)
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row mt-2">
+    <!-- <div class="col-12">
+        <div class="card card-statistics">
+            <div class="card-body">
+                <div class="clearfix">
+                    <div class="float-left">
+                        <i class="fa fa-building text-info icon-lg"></i>
+                    </div>
+                    <div class="float-right">
+                        <p class="mb-0 text-right">Diferença</p>
+                        <div class="fluid-container">
+                            <h3 [class.text-success]=" totalEntradas - totalSaidas >= 0"
+                                [class.text-danger]=" totalEntradas - totalSaidas < 0"
+                                class="font-weight-medium text-right mb-0">
+                                {{ totalEntradas - totalSaidas | currency }}
+                            </h3>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div> -->
+
+    <div class="col-12 p-2" *ngIf="entradas > 0 || saidas > 0">
+        <div class="card card-statistics">
+            <div class="card-body">
+                <div class="chart-container" style="display: block">
+                    <canvas baseChart [data]="doughnutChartData" [labels]="doughnutChartLabels"
+                        [chartType]="doughnutChartType">
+                    </canvas>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
