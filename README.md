@@ -7,8 +7,6 @@
 
 O MovsApp é uma aplicação desenvolvida em angular e firebase, que registra movimentações financeiras de entrada e saída. Utilizando recursos como autenticação com email e senha, real-time com programação reativa e utilização de gráficos para resumo das informações.
 
-Veja a aplicação [aqui](https://movimentsapp.netlify.app/)
-
 ## Construído com
 
 - Angular
