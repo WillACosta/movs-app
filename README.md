@@ -16,11 +16,6 @@ O MovsApp é uma aplicação desenvolvida em angular e firebase, que registra mo
 - Chart.js
 - Firebase
 
-## Implementações futuras
-
-- [ ] Design responsivo
-- [ ] Testes unitários
-
 ## Execução
 
     Necessário ter o Node.js instalado em sua máquina.
